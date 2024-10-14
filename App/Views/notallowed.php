@@ -1,0 +1,1 @@
+<h1>403 Sizda bu joyga kirish uchun ruxsat yo'q!</h1>
