@@ -52,19 +52,15 @@ class LoginController
                         "password" => $password
                     ];
                     $user = User::create($data);
-                    $id = User::lastInsert();
-                    $user = User::show($id);
-                    dd($user,$id);
-                    // if($user){
-                    //     $_SESSION['auth'] = $user;
-                    //     header("location: /");
-                    // }
+                    if($user){
+                        header("location: /");
+                    }
                     
                 }else{
                     $_SESSION['msg'] = "Parollar bir xil emas";
                     header("location: /register");
                 }
-            }else{
+             }else{
                 $_SESSION['msg'] = "Bu email orqali oldin ro'yxatdan o'tilgan";
                 header("location: /register");
             }

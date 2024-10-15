@@ -35,6 +35,7 @@ class Model extends Database
         $sql = "INSERT INTO " . static::$table . " ({$columns}) VALUES ({$values})";
         $result = self::connect()->prepare($sql)->execute();
         if ($result) {
+            $_SESSION['auth'] = self::getOne($data['email']);
             return true;
         }
         return false;
@@ -79,5 +80,13 @@ class Model extends Database
         $db = self::connect();
         $stmt = $db->query("SELECT * FROM " . static::$table . " WHERE {$cleanedS}");
         return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+
+    public static function getOne($email){
+        $sql = "SELECT * FROM " . static::$table . " WHERE email = :email";
+        $query = self::connect()->prepare($sql);
+        $query->bindParam(":email", $email);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_OBJ);
     }
 }
