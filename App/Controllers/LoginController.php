@@ -42,7 +42,7 @@ class LoginController
     {
         if (isset($_POST['ok'])) {
             $email = $_POST['email'];
-            $user = User::show($email);
+            $user = User::getOne($email);
             if(!$user){
                 if($_POST['password'] == $_POST['cpassword']){
                     $password = md5(htmlspecialchars(strip_tags($_POST['password'])));
@@ -52,9 +52,7 @@ class LoginController
                         "password" => $password
                     ];
                     $user = User::create($data);
-                    if($user){
-                        Auth::attach($data);
-                    }
+                    
                 }else{
                     $_SESSION['msg'] = "Parollar bir xil emas";
                     header("location: /register");

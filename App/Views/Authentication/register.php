@@ -24,6 +24,12 @@
                         </div>
                     </div>
                 </div>
+                <?php
+                if (isset($_SESSION['msg'])) {
+                    echo '<span style="color: red;">' . $_SESSION['msg'] . '</span>';
+                    unset($_SESSION['msg']);
+                }
+                ?>
                 <div class="input-group mb-3">
                     <input type="password" name="password" class="form-control" placeholder="Password">
                     <div class="input-group-append">

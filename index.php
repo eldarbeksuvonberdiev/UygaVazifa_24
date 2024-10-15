@@ -1,5 +1,6 @@
 <?php
 use App\App;
+session_start();
 
 include "autoload.php";
 include "web.php";
