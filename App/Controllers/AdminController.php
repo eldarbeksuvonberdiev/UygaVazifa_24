@@ -7,13 +7,12 @@ class AdminController{
 
     public function __construct()
     {
-        if(!(Auth::check())){
+        if(Auth::check()){
             header("location: /login");
         }
     }
 
     public function index(){
-        echo "I am in index";
         return view('TaskControl/index','Admin menu');
     }
 

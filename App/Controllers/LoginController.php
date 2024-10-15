@@ -32,4 +32,38 @@ class LoginController
             Auth::attach($data);
         }
     }
+
+    public function logout(){
+        unset($_SESSION['auth']);
+        header("location: /login");
+    }
+
+    public function register()
+    {
+        if (isset($_POST['ok'])) {
+            $email = $_POST['email'];
+            $user = User::show($email);
+            if(!$user){
+                if($_POST['password'] == $_POST['cpassword']){
+                    $password = md5(htmlspecialchars(strip_tags($_POST['password'])));
+                    $data = [
+                        "name" => htmlspecialchars(strip_tags($_POST['name'])),
+                        "email" => htmlspecialchars(strip_tags($_POST['email'])),
+                        "password" => $password
+                    ];
+                    $user = User::create($data);
+                    if($user){
+                        Auth::attach($data);
+                    }
+                }else{
+                    $_SESSION['msg'] = "Parollar bir xil emas";
+                    header("location: /register");
+                }
+            }else{
+                $_SESSION['msg'] = "Bu email orqali oldin ro'yxatdan o'tilgan";
+                header("location: /register");
+            }
+        }
+    }
+
 }

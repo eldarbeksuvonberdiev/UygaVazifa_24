@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="Assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <link rel="stylesheet" href="Assets/plugins/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="Assets/plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -25,11 +26,8 @@
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
 
       <ul class="navbar-nav ml-auto">
-
         <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="false" href="#" role="button">
-            <i class="fas fa-th-large"></i>
-          </a>
+          <a href="/logout"><i class="bi bi-box-arrow-in-right"></i>Log Out</a>
         </li>
       </ul>
     </nav>
@@ -74,35 +72,35 @@
       </div>
     </aside>
 
-    <?=$content?>
+    <?= $content ?>
 
-      <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-          <b>Version</b> 3.2.0
-        </div>
-      </footer>
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
 
-      <script src="Assets/plugins/jquery/jquery.min.js"></script>
-      <script src="Assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-      <script>
-        $.widget.bridge('uibutton', $.ui.button)
-      </script>
-      <script src="Assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-      <script src="Assets/plugins/chart.js/Chart.min.js"></script>
-      <script src="Assets/plugins/sparklines/sparkline.js"></script>
-      <script src="Assets/plugins/jqvmap/jquery.vmap.min.js"></script>
-      <script src="Assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-      <script src="Assets/plugins/jquery-knob/jquery.knob.min.js"></script>
-      <script src="Assets/plugins/moment/moment.min.js"></script>
-      <script src="Assets/plugins/daterangepicker/daterangepicker.js"></script>
-      <script src="Assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-      <script src="Assets/plugins/summernote/summernote-bs4.min.js"></script>
-      <script src="Assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-      <script src="Assets/dist/js/adminlte.js"></script>
-      <script src="Assets/dist/js/demo.js"></script>
-      <script src="Assets/dist/js/pages/dashboard.js"></script>
+    <script src="Assets/plugins/jquery/jquery.min.js"></script>
+    <script src="Assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script>
+      $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <script src="Assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="Assets/plugins/chart.js/Chart.min.js"></script>
+    <script src="Assets/plugins/sparklines/sparkline.js"></script>
+    <script src="Assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="Assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script src="Assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <script src="Assets/plugins/moment/moment.min.js"></script>
+    <script src="Assets/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="Assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="Assets/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="Assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="Assets/dist/js/adminlte.js"></script>
+    <script src="Assets/dist/js/demo.js"></script>
+    <script src="Assets/dist/js/pages/dashboard.js"></script>
 </body>
 
 </html>

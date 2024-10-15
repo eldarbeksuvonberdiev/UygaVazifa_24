@@ -13,7 +13,7 @@
 </head>
 
 <body class="hold-transition login-page">
-    <?=$content?>
+    <?= $content ?>
 
     <script src="../../Assets/plugins/jquery/jquery.min.js"></script>
     <script src="../../Assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
