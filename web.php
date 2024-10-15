@@ -10,4 +10,5 @@ Route::get("/kanban",[AdminController::class,"kanban"]);
 Route::get("/login",[LoginController::class,"loginPage"]);
 Route::get("/register",[LoginController::class,"registerPage"]);
 
+Route::post("/login",[LoginController::class,"login"]);
 
