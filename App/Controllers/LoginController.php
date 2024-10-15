@@ -52,6 +52,13 @@ class LoginController
                         "password" => $password
                     ];
                     $user = User::create($data);
+                    $id = User::lastInsert();
+                    $user = User::show($id);
+                    dd($user,$id);
+                    // if($user){
+                    //     $_SESSION['auth'] = $user;
+                    //     header("location: /");
+                    // }
                     
                 }else{
                     $_SESSION['msg'] = "Parollar bir xil emas";

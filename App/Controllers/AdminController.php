@@ -7,7 +7,7 @@ class AdminController{
 
     public function __construct()
     {
-        if(Auth::check()){
+        if(!Auth::check()){
             header("location: /login");
         }
     }

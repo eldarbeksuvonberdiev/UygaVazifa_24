@@ -14,5 +14,9 @@ class User extends Model{
         $query->execute();
         return $query->fetch(PDO::FETCH_OBJ);
     }
+
+    public static function lastInsert(){
+        $id = self::connect()->lastInsertId();
+    }
 }
 ?>
