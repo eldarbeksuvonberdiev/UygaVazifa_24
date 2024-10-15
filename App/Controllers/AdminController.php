@@ -5,13 +5,19 @@ use App\Helpers\Auth;
 
 class AdminController{
 
-    // public function __construct()
-    // {
-    //     layout('loginMain');
-    // }
+    public function __construct()
+    {
+        if(!Auth::check()){
+            header("location: /login");
+        }
+    }
 
     public function index(){
-        return view('Authentication/login','login');
+        return view('TaskControl/index','Admin menu');
+    }
+
+    public function kanban(){
+        return view('TaskStatus/index','login');
     }
 
 }
