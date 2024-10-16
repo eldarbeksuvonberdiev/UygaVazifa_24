@@ -102,5 +102,12 @@ class Model extends Database
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public static function createTask($data)
+    {
+        $columns = implode(", ", array_keys($data));
+        $values = "'" . implode("','", array_values($data)) . "'";
+        $sql = "INSERT INTO " . static::$table . " ({$columns}) VALUES ({$values})";
+        self::connect()->prepare($sql)->execute();
+    }
 
 }
