@@ -63,6 +63,17 @@ class TaskController{
         }
     }
 
+    public function accept(){
+        if(isset($_POST['ok'])){
+            $id = $_POST['id'];
+            $status = $_POST['status'];
+            $data = [
+                "status" => $status
+            ];
+            Task::update($data,$id);
+            header("location: /");
+        }
+    }
 
 
 }

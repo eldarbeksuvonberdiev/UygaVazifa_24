@@ -12,19 +12,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-6">
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3>Soni</h3>
-
-                            <p>Rejected Tasks</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6">
                     <div class="small-box bg-secondary">
                         <div class="inner">
                             <h3>Soni</h3>
@@ -32,9 +19,9 @@
                             <p>Given Tasks</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-person-add"></i>
+                            <i class="bi bi-person-workspace"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">All... <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
@@ -45,9 +32,9 @@
                             <p>In Progress </p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="bi bi-git"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">All... <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
@@ -58,25 +45,35 @@
                             <p>Done</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
+                            <i class="bi bi-check2-circle"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">All... <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>Soni</h3>
 
-
+                            <p>Rejected Tasks</p>
+                        </div>
+                        <div class="icon">
+                            <i class="bi bi-arrow-counterclockwise"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">All... <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
             </div>
     </section>
     <section class="content">
         <div class="container-fluid">
-            <a href="/add"><button type="submit" class="btn btn-primary mb-3">Vazifa qo'shish</button></a>
+            <a href="/add"><button type="submit" class="btn btn-secondary mb-3">Give Task</button></a>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Barcha vazifalar ro'yxati</h3>
+                            <h3 class="card-title">Tasks</h3>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example2" class="table table-bordered-striped table-hover ">
                                 <thead>
@@ -113,7 +110,49 @@
                                                 <?php } elseif ($model->status == '2') { ?>
                                                     <button type="button" class="btn btn-info" disabled>In Progress</button>
                                                 <?php } elseif ($model->status == '3') { ?>
+
                                                     <button type="button" class="btn btn-success" disabled>Done</button>
+
+                                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $model->id ?>">Accept or Reject</button>
+
+                                                    <div class="modal fade" id="exampleModal<?= $model->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel" align="center">Reject the task</h1>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="/reject" method="post">
+                                                                        <div class="mb-3">
+                                                                            <input type="hidden" name="id" value="<?= $model->id ?>">
+                                                                            <input type="hidden" name="status" value="4">
+                                                                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                                                            <input type="text" class="form-control" id="recipient-name" value="<?= $model->name ?>" readonly>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="message-text" class="col-form-label">Message:</label>
+                                                                            <textarea class="form-control" id="message-text" name="comment"></textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                            <button type="submit" name="ok" class="btn btn-danger">Reject the task</button>
+                                                                        </div>
+                                                                    </form>
+                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Accept the task</h1>
+                                                                    <form action="/accept" method="post">
+                                                                        <input type="hidden" name="id" value="<?= $model->id ?>">
+                                                                        <input type="hidden" name="status" value="4">
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit" name="ok" class="btn btn-success">Accept</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php } elseif ($model->status == '4') { ?>
+                                                    <button type="button" class="btn btn-dark" disabled>Ready</button>
                                                 <?php } ?>
                                             </td>
                                         </tr>

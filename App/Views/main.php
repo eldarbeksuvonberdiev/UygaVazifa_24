@@ -33,7 +33,7 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="/logout" style="text-decoration: none;"><i class="bi bi-box-arrow-in-right me-4"> LogOut</i></a>
+          <a href="/logout" style="text-decoration: none;color:red;font-weight:bold;"><i class="bi bi-box-arrow-in-right me-4"> LogOut</i></a>
         </li>
       </ul>
     </nav>
@@ -78,7 +78,7 @@
             <?php } else { ?>
               <li class="nav-item mt-3">
                 <a href="/" class="nav-link active">
-                  <i class="nav-icon fas fa-columns"></i>
+                  <i class="bi bi-list-task"></i>
                   <p>
                     User Tasks
                   </p>
