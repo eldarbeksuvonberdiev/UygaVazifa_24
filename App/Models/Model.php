@@ -110,35 +110,24 @@ class Model extends Database
         self::connect()->prepare($sql)->execute();
     }
 
-    public static function getOwnTasks($id){
-        // $sql = "SELECT 
-        // SUM(CASE WHEN status = '1' THEN 1 ELSE 0 END) AS given,
-        // SUM(CASE WHEN status = '2' THEN 1 ELSE 0 END) AS in_progress,
-        // SUM(CASE WHEN status = '3' THEN 1 ELSE 0 END) AS done,
-        // SUM(CASE WHEN status = '0' THEN 1 ELSE 0 END) AS rejected 
-        // FROM task WHERE id = {$id}";
-        // $sql = "SELECT * FROM ". static::$table ." WHERE id={$id}";
-        $sql = "SELECT * FROM ". static::$table . " WHERE id = {$id} AND status = 1";
-        $query1 = self::connect()->query($sql);
-        $query1 = $query1->fetchAll(PDO::FETCH_OBJ);
+    public static function get($id,$status){
+        $sql = "SELECT * FROM ". static::$table . " WHERE user_id = {$id} AND status = {$status}";
+        $query = self::connect()->query($sql);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    } 
 
-        $sql = "SELECT * FROM ". static::$table . " WHERE id = {$id} AND status = 2";
-        $query2 = self::connect()->query($sql);
-        $query2 = $query2->fetchAll(PDO::FETCH_OBJ);
-        
-        $sql = "SELECT * FROM ". static::$table . " WHERE id = {$id} AND status = 3";
-        $query3 = self::connect()->query($sql);
-        $query3 = $query3->fetchAll(PDO::FETCH_OBJ);
-        
-        $sql = "SELECT * FROM ". static::$table . " WHERE id = {$id} AND status = 0";
-        $query0 = self::connect()->query($sql);
-        $query0 = $query0->fetchAll(PDO::FETCH_OBJ);
+    public static function getOwnTasks($id){
+
+        $query0 = self::get($id,'0');
+        $query1 = self::get($id,'1');
+        $query2 = self::get($id,'2');
+        $query3 = self::get($id,'3');
         
         $tasks = [
+            "rejected" => $query0,
             "given" => $query1,
             "in_progress" => $query2,
-            "done" => $query3,
-            "rejected" => $query0
+            "done" => $query3
         ];
         return $tasks;
     }

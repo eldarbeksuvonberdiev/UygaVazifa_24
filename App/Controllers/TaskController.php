@@ -44,7 +44,22 @@ class TaskController{
                 ];
                 Task::createTask($data);
                 header("location: /");
+            }else{
+                header("location: /add");
             }
+        }
+    }
+
+    public function changeStatus(){
+        if(isset($_POST['ok'])){
+            $task_id = $_POST['task_id'];
+            $task_status = $_POST['task_status'];
+            $data = [
+                "status" => $task_status
+            ];
+
+            Task::update($data,$task_id);
+            header("location: /");
         }
     }
 

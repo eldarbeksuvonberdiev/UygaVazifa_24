@@ -20,3 +20,5 @@ Route::post("/register",[LoginController::class,"register"]);
 //Task Controllers
 Route::get("/add",[TaskController::class,"index"]);
 Route::post("/add",[TaskController::class,"create"]);
+Route::post("/start",[TaskController::class,"changeStatus"]);
+

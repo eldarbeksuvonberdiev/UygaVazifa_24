@@ -16,8 +16,9 @@ class AdminController{
     public function index(){
         $models = Task::getAllTask();
         $tasks = Task::getOwnTasks($_SESSION['auth']->id);
+        // dd($tasks);
         if($_SESSION['auth']->role != 'admin'){
-            return view('UserTaskControl/index','Admin menu',$tasks);
+            return view('UserTaskControl/index','User menu',$tasks);
         }
         return view('TaskControl/index','Admin menu',$models);
     }
