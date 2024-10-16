@@ -75,6 +75,24 @@ class TaskController{
         }
     }
 
+    public function reject(){
+        if(isset($_POST['ok'])){
+            $id = $_POST['id'];
+            $status = $_POST['status'];
+            $comment = $_POST['comment'];
+            $data = [
+                "status" => $status,
+                "comment" => $comment
+            ];
+            Task::update($data,$id);
+            header("location: /");
+        }
+    }
+    
+    public function given(){
+        
+    }
+
 
 }
 

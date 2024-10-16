@@ -19,8 +19,13 @@ Route::post("/register",[LoginController::class,"register"]);
 
 //Task Controllers
 Route::get("/add",[TaskController::class,"index"]);
+Route::get("/given",[TaskController::class,"given"]);
+Route::get("/in_progress",[TaskController::class,"in_progress"]);
+Route::get("/done",[TaskController::class,"done"]);
+Route::get("/reject",[TaskController::class,"reject"]);
+Route::get("/ready",[TaskController::class,"ready"]);
 Route::post("/add",[TaskController::class,"create"]);
 Route::post("/accept",[TaskController::class,"accept"]);
-Route::post("/reject",[TaskController::class,"changeStatus"]);
-Route::post("/start",[TaskController::class,"changeStatus"]);
+Route::post("/reject",[TaskController::class,"reject"]);
+// Route::post("/start",[TaskController::class,"changeStatus"]);
 

@@ -11,20 +11,34 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 col-6">
-                    <div class="small-box bg-secondary">
+                <div class="col-lg-2 col-6">
+                    <div class="small-box bg-light">
                         <div class="inner">
                             <h3>Soni</h3>
 
-                            <p>Given Tasks</p>
+                            <p>All Tasks</p>
                         </div>
                         <div class="icon">
-                            <i class="bi bi-person-workspace"></i>
+                            <i class="bi bi-list-task"></i>
                         </div>
-                        <a href="#" class="small-box-footer">All... <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="/" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-2 col-6">
+                    <form action="/given" method="post">
+                        <div class="small-box bg-secondary">
+                            <div class="inner">
+                                <h3>Soni</h3>
+                                <p>Given Tasks</p>
+                            </div>
+                            <div class="icon">
+                                <i class="bi bi-person-workspace"></i>
+                            </div>
+                            <a href="/given" class="small-box-footer">All...<i class="bi bi-arrow-down-circle"></i></a>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>Soni</h3>
@@ -34,10 +48,10 @@
                         <div class="icon">
                             <i class="bi bi-git"></i>
                         </div>
-                        <a href="#" class="small-box-footer">All... <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>Soni</h3>
@@ -47,10 +61,10 @@
                         <div class="icon">
                             <i class="bi bi-check2-circle"></i>
                         </div>
-                        <a href="#" class="small-box-footer">All... <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-2 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>Soni</h3>
@@ -60,7 +74,20 @@
                         <div class="icon">
                             <i class="bi bi-arrow-counterclockwise"></i>
                         </div>
-                        <a href="#" class="small-box-footer">All... <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <div class="small-box bg-dark">
+                        <div class="inner">
+                            <h3>Soni</h3>
+
+                            <p>Ready Tasks</p>
+                        </div>
+                        <div class="icon">
+                            <i class="bi bi-check2-all"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
                     </div>
                 </div>
             </div>
@@ -126,7 +153,7 @@
                                                                     <form action="/reject" method="post">
                                                                         <div class="mb-3">
                                                                             <input type="hidden" name="id" value="<?= $model->id ?>">
-                                                                            <input type="hidden" name="status" value="4">
+                                                                            <input type="hidden" name="status" value="0">
                                                                             <label for="recipient-name" class="col-form-label">Recipient:</label>
                                                                             <input type="text" class="form-control" id="recipient-name" value="<?= $model->name ?>" readonly>
                                                                         </div>

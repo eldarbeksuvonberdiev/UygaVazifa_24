@@ -118,6 +118,7 @@ class Model extends Database
 
     public static function getOwnTasks($id){
 
+        $count = self::getCount();
         $query0 = self::get($id,'0');
         $query1 = self::get($id,'1');
         $query2 = self::get($id,'2');
@@ -130,6 +131,11 @@ class Model extends Database
             "done" => $query3
         ];
         return $tasks;
+    }
+
+    public static function getCount(){
+        $sql = "SELECT COUNT(id) FROM " . self::$table;
+        $query = self::connect()->query($sql);
     }
 
 }
