@@ -77,11 +77,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                            <h3 class="card-title">Barcha vazifalar ro'yxati</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example2" class="table table-bordered table-hover">
+                            <table id="example2" class="table table-bordered-striped table-hover ">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -99,8 +99,14 @@
                                             <td><?= $model->id ?></td>
                                             <td><?= $model->title ?></td>
                                             <td><?= $model->description ?></td>
-                                            <td><?= $model->img ?></td>
-                                            <td><?= $model->user_id ?></td>
+                                            <td><?php
+                                            if(!$model->img){
+                                                echo "";
+                                            }else{
+                                                echo "<img src='$model->img'' alt='' width='100px'>";
+                                            }?>
+                                            </td>
+                                            <td><?= $model->name ?></td>
                                             <td><?= $model->status ?></td>
                                         </tr>
                                     <?php }

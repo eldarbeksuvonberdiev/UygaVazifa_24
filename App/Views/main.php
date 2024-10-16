@@ -57,30 +57,36 @@
 
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item">
-              <a href="/" class="nav-link active">
-                <i class="nav-icon far fa-image"></i>
-                <p>
-                  Task Control
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/tasksta" class="nav-link active">
-                <i class="nav-icon fas fa-columns"></i>
-                <p>
-                  Task Status
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/" class="nav-link active">
-                <i class="nav-icon fas fa-columns"></i>
-                <p>
-                  User Task Control
-                </p>
-              </a>
-            </li>
+            <?php
+            if ($_SESSION['auth']->role == 'admin') { ?>
+              <li class="nav-item">
+                <a href="/" class="nav-link active">
+                  <i class="nav-icon far fa-image"></i>
+                  <p>
+                    Task Control
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/tasksta" class="nav-link active">
+                  <i class="nav-icon fas fa-columns"></i>
+                  <p>
+                    Task Status
+                  </p>
+                </a>
+              </li>
+            <?php } else { ?>
+              <li class="nav-item">
+                <a href="/" class="nav-link active">
+                  <i class="nav-icon fas fa-columns"></i>
+                  <p>
+                    User Task Control
+                  </p>
+                </a>
+              </li>
+
+            <?php }
+            ?>
           </ul>
         </nav>
       </div>

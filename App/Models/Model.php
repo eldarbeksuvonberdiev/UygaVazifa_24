@@ -91,7 +91,7 @@ class Model extends Database
     }
 
     public static function getAllTask(){
-        $sql = "SELECT * FROM " . static::$table;
+        $sql = "SELECT ". static::$table .".*, user.name AS name FROM " . static::$table ." LEFT JOIN user ON ". static::$table .".user_id=user.id";
         $query = self::connect()->query($sql);
         return $query->fetchAll(PDO::FETCH_OBJ);
     }

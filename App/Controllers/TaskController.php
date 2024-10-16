@@ -27,7 +27,8 @@ class TaskController{
                 $path = "";
                 if(isset($_FILES['img']['name'])){
                     $img = explode('.',$_FILES['img']['name']);
-                    $path = 'images/' . date("y-m-d_h-i-s.").end($img);
+                    $path = 'App/Images/' . date("y-m-d_h-i-s.").end($img);
+                    move_uploaded_file($_FILES['img']['tmp_name'],$path);
                     $data = [
                         "title" => $title,
                         "description" => $description,
