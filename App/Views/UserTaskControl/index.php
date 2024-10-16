@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <?php
                     foreach ($models['rejected'] as $reject) { ?>
-                        <div class="card card-info card-outline">
+                        <div class="card card-danger card-outline">
                             <div class="card-header">
                                 <h5 class="card-title"><?= $reject->title ?></h5>
                                 <div class="card-tools">
@@ -93,7 +93,7 @@
                 <div class="card-body">
                     <?php
                     foreach ($models['in_progress'] as $progress) { ?>
-                        <div class="card card-light card-outline">
+                        <div class="card card-info card-outline">
                             <div class="card-header">
                                 <h5 class="card-title"><?= $progress->title ?></h5>
                                 <div class="card-tools">
