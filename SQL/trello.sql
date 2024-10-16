@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 15, 2024 at 06:54 AM
+-- Generation Time: Oct 16, 2024 at 06:58 AM
 -- Server version: 8.0.39
 -- PHP Version: 8.2.12
 
@@ -31,11 +31,22 @@ CREATE TABLE `task` (
   `id` int NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `img` varchar(255) NOT NULL,
+  `img` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `user_id` int NOT NULL,
   `status` int NOT NULL DEFAULT '1',
-  `comment` text NOT NULL
+  `comment` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Dumping data for table `task`
+--
+
+INSERT INTO `task` (`id`, `title`, `description`, `img`, `user_id`, `status`, `comment`) VALUES
+(1, 'Something', 'Something Something', NULL, 1, 1, ''),
+(2, 'Something Something', ' Something Something', NULL, 8, 1, ''),
+(3, 'Something', 'Something Something Something', NULL, 1, 1, NULL),
+(4, 'Something', 'Something Something ', 'App/Images/24-10-16_05-49-14.jpg', 8, 1, NULL),
+(5, 'dsnfkjanfkjdf', 'adkmvnkjanfj;nbk s;f', 'App/Images/24-10-16_06-07-22.', 15, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -59,10 +70,14 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`, `status`) VALUES
 (1, 'Boltavoy', 'boltavoy@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
 (2, 'Elbek', 'elbek@gmail.com', '202cb962ac59075b964b07152d234b70', 'admin', 0),
-(5, '', '', 'd41d8cd98f00b204e9800998ecf8427e', 'user', 0),
-(6, 'Hech kim', 'toshmat@mail.ru', '202cb962ac59075b964b07152d234b70', 'user', 0),
 (8, 'Hech', 'janob@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
-(9, 'Kimdir', 'kimdir@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0);
+(9, 'Kimdir', 'kimdir@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
+(15, 'sal', 'sal@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
+(16, 'Salomat', 'salomat@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
+(17, 'test', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
+(18, 'tester', 'tester@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
+(19, 'sal', 'salomatmisiz@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
+(20, 'men', 'men@gmial.com', '202cb962ac59075b964b07152d234b70', 'user', 0);
 
 --
 -- Indexes for dumped tables
@@ -89,13 +104,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `task`
 --
 ALTER TABLE `task`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
