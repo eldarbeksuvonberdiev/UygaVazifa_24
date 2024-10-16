@@ -18,6 +18,12 @@
   <link rel="stylesheet" href="Assets/plugins/daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="Assets/plugins/summernote/summernote-bs4.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="Assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="Assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="Assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="Assets/dist/css/adminlte.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -27,7 +33,7 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="/logout"><i class="bi bi-box-arrow-in-right"></i>Log Out</a>
+          <a href="/logout"><i class="bi bi-box-arrow-in-right me-3">Log Out</i></a>
         </li>
       </ul>
     </nav>
@@ -60,10 +66,18 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/kanban" class="nav-link active">
+              <a href="/tasksta" class="nav-link active">
                 <i class="nav-icon fas fa-columns"></i>
                 <p>
                   Task Status
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/" class="nav-link active">
+                <i class="nav-icon fas fa-columns"></i>
+                <p>
+                  User Task Control
                 </p>
               </a>
             </li>
@@ -101,6 +115,42 @@
     <script src="Assets/dist/js/adminlte.js"></script>
     <script src="Assets/dist/js/demo.js"></script>
     <script src="Assets/dist/js/pages/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!--Table scripts -->
+    <script src="Assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="Assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="Assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="Assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="Assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="Assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="Assets/plugins/jszip/jszip.min.js"></script>
+    <script src="Assets/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="Assets/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="Assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="Assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="Assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="Assets/dist/js/adminlte.min.js"></script>
+    <script src="Assets/dist/js/demo.js"></script>
+    <!-- Page specific script -->
+    <script>
+      $(function() {
+        $("#example1").DataTable({
+          "responsive": true,
+          "lengthChange": false,
+          "autoWidth": false,
+          "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false,
+          "responsive": true,
+        });
+      });
+    </script>
 </body>
 
 </html>

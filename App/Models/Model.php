@@ -89,4 +89,18 @@ class Model extends Database
         $query->execute();
         return $query->fetch(PDO::FETCH_OBJ);
     }
+
+    public static function getAllTask(){
+        $sql = "SELECT * FROM " . static::$table;
+        $query = self::connect()->query($sql);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public static function getUsers(){
+        $sql = "SELECT id,name FROM user WHERE role != 'admin'";
+        $query = self::connect()->query($sql);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
 }

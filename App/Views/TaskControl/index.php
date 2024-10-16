@@ -69,9 +69,48 @@
                     </div>
                 </div>
             </div>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <a href="/add"><button type="submit" class="btn btn-primary mb-3">Vazifa qo'shish</button></a>
             <div class="row">
-                <section class="col-lg-7 connectedSortable">
-                </section>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>User</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($models as $model) { ?>
+                                        <tr>
+                                            <td><?= $model->id ?></td>
+                                            <td><?= $model->title ?></td>
+                                            <td><?= $model->description ?></td>
+                                            <td><?= $model->img ?></td>
+                                            <td><?= $model->user_id ?></td>
+                                            <td><?= $model->status ?></td>
+                                        </tr>
+                                    <?php }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
     </section>
 </div>

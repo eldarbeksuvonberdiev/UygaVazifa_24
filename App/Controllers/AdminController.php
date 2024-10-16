@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Helpers\Auth;
+use App\Models\Task;
 
 class AdminController{
 
@@ -13,7 +14,8 @@ class AdminController{
     }
 
     public function index(){
-        return view('TaskControl/index','Admin menu');
+        $models = Task::getAllTask();
+        return view('TaskControl/index','Admin menu',$models);
     }
 
     public function kanban(){
