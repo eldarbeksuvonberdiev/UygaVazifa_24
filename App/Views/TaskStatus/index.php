@@ -30,14 +30,33 @@
                                 <tbody>
                                     <?php
                                     foreach ($models as $model) { ?>
+                                        <?php
+                                        if ($model->role == 'admin') {
+                                            continue;
+                                        }
+                                        ?>
                                         <tr>
                                             <td><?= $model->id ?></td>
                                             <td><?= $model->name ?></td>
                                             <td><?= $model->email ?></td>
-                                            <td><?=$model->status?> 
+                                            <td><?= $model->status ?>
                                             </td>
                                             <td>
-
+                                                <?php
+                                                if ($model->status == "0") { ?>
+                                                    <form action="/activate" method="post">
+                                                        <input type="hidden" name="id" value="<?= $model->id ?>">
+                                                        <input type="hidden" name="status" value="1">
+                                                        <button type="submit" name="ok" class="btn btn-success">Activate</button>
+                                                    </form>
+                                                <?php } else { ?>
+                                                    <form action="/disactivate" method="post">
+                                                        <input type="hidden" name="id" value="<?= $model->id ?>">
+                                                        <input type="hidden" name="status" value="0">
+                                                        <button type="submit" name="ok" class="btn btn-danger">Disactiveate</button>
+                                                    </form>
+                                                <?php }
+                                                ?>
                                             </td>
                                         </tr>
                                     <?php }

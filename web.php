@@ -3,11 +3,12 @@
 use App\Controllers\AdminController;
 use App\Controllers\LoginController;
 use App\Controllers\TaskController;
+use App\Controllers\UserController;
 use App\Routes\Route;
 
 //Admin Controller
 Route::get("/",[AdminController::class,"index"]);
-Route::get("/tasksta",[AdminController::class,"kanban"]);
+Route::get("/users",[AdminController::class,"users"]);
 
 //Login Controller
 Route::get("/login",[LoginController::class,"loginPage"]);
@@ -30,4 +31,8 @@ Route::post("/add",[TaskController::class,"create"]);
 Route::post("/accept",[TaskController::class,"accept"]);
 Route::post("/reject",[TaskController::class,"reject"]);
 Route::post("/start",[TaskController::class,"changeStatus"]);
+
+//user controller
+Route::post("/activate",[UserController::class,"changeStatus"]);
+Route::post("/disactivate",[UserController::class,"changeStatus"]);
 

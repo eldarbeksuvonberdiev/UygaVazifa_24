@@ -29,9 +29,9 @@ class AdminController{
         return view('TaskControl/index','Admin menu',$models);
     }
 
-    public function kanban(){
+    public function users(){
         $users = User::all();
-        return view('TaskStatus/index','login',$users);
+        return view('TaskStatus/index','Users',$users);
     }
 
 
