@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Helpers\Auth;
 use App\Models\Task;
+use App\Models\User;
 
 class AdminController{
 
@@ -14,17 +15,23 @@ class AdminController{
     }
 
     public function index(){
-        $models = Task::getAllTask();
-        $tasks = Task::getOwnTasks($_SESSION['auth']->id);
+        $tasks = Task::getAllTask();
+        $count = Task::getAllCount();
+        $models = [
+            0 => $count,
+            1 => $tasks
+        ];
+        $owntasks = Task::getOwnTasks($_SESSION['auth']->id);
         // dd($tasks);
         if($_SESSION['auth']->role != 'admin'){
-            return view('UserTaskControl/index','User menu',$tasks);
+            return view('UserTaskControl/index','User menu',$owntasks);
         }
         return view('TaskControl/index','Admin menu',$models);
     }
 
     public function kanban(){
-        return view('TaskStatus/index','login');
+        $users = User::all();
+        return view('TaskStatus/index','login',$users);
     }
 
 

@@ -6,12 +6,12 @@ use App\Models\Task;
 
 class TaskController{
 
-    // public function __construct()
-    // {
-    //     if(!Auth::check()){
-    //         header("location: /login");
-    //     }
-    // }
+    public function __construct()
+    {
+        if(!Auth::check()){
+            header("location: /login");
+        }
+    }
 
     public function index(){
         $users = Task::getUsers();
@@ -89,11 +89,67 @@ class TaskController{
         }
     }
     
-    public function given(){
-        
+
+
+    public function getByStatus($status){
+        $all = Task::getTaskByStatus($status);
+        return $all;
     }
 
+    public function given(){
+        $count = Task::getAllCount();
+        $given = $this->getByStatus('1');
+        $data = [
+            0 => $count,
+            1 => $given
+        ];
+        return view('TaskControl/index','Admin menu',$data);
+        // return $data;
+    }
 
+    public function in_progress(){
+        $count = Task::getAllCount();
+        $in_progress = $this->getByStatus('2');
+        $data = [
+            0 => $count,
+            1 => $in_progress
+        ];
+        return view('TaskControl/index','Admin menu',$data);
+        // return $data;
+    }
+
+    public function done(){
+        $count = Task::getAllCount();
+        $done = $this->getByStatus('3');
+        $data = [
+            0 => $count,
+            1 => $done
+        ];
+        return view('TaskControl/index','Admin menu',$data);
+        // return $data;
+    }
+
+    public function ready(){
+        $count = Task::getAllCount();
+        $ready = $this->getByStatus('4');
+        $data = [
+            0 => $count,
+            1 => $ready
+        ];
+        return view('TaskControl/index','Admin menu',$data);
+        // return $data;
+    }
+
+    public function rejected(){
+        $count = Task::getAllCount();
+        $rejected = $this->getByStatus('0');
+        $data = [
+            0 => $count,
+            1 => $rejected
+        ];
+        return view('TaskControl/index','Admin menu',$data);
+        // return $data;
+    }
 }
 
 

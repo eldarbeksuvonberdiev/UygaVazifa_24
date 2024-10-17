@@ -14,7 +14,7 @@
                 <div class="col-lg-2 col-6">
                     <div class="small-box bg-light">
                         <div class="inner">
-                            <h3>Soni</h3>
+                            <h3><?=$models[0]["all"]->count?></h3>
 
                             <p>All Tasks</p>
                         </div>
@@ -28,7 +28,7 @@
                     <form action="/given" method="post">
                         <div class="small-box bg-secondary">
                             <div class="inner">
-                                <h3>Soni</h3>
+                                <h3><?=$models[0]["given"]->count?></h3>
                                 <p>Given Tasks</p>
                             </div>
                             <div class="icon">
@@ -41,53 +41,53 @@
                 <div class="col-lg-2 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>Soni</h3>
+                            <h3><?=$models[0]["in_progress"]->count?></h3>
 
                             <p>In Progress </p>
                         </div>
                         <div class="icon">
                             <i class="bi bi-git"></i>
                         </div>
-                        <a href="#" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
+                        <a href="/in_progress" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>Soni</h3>
+                            <h3><?=$models[0]["done"]->count?></h3>
 
                             <p>Done</p>
                         </div>
                         <div class="icon">
                             <i class="bi bi-check2-circle"></i>
                         </div>
-                        <a href="#" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
+                        <a href="/done" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>Soni</h3>
+                            <h3><?=$models[0]["rejected"]->count?></h3>
 
                             <p>Rejected Tasks</p>
                         </div>
                         <div class="icon">
                             <i class="bi bi-arrow-counterclockwise"></i>
                         </div>
-                        <a href="#" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
+                        <a href="/rejected" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-6">
                     <div class="small-box bg-dark">
                         <div class="inner">
-                            <h3>Soni</h3>
+                            <h3><?=$models[0]["ready"]->count?></h3>
 
                             <p>Ready Tasks</p>
                         </div>
                         <div class="icon">
                             <i class="bi bi-check2-all"></i>
                         </div>
-                        <a href="#" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
+                        <a href="/ready" class="small-box-footer">All... <i class="bi bi-arrow-down-circle"></i></a>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($models as $model) { ?>
+                                    foreach ($models[1] as $model) { ?>
                                         <tr>
                                             <td><?= $model->id ?></td>
                                             <td><?= $model->title ?></td>

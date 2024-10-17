@@ -30,6 +30,16 @@
                                 <div class="card-tools">
                                 </div>
                             </div>
+                            <div class="card-body">
+                                <p>
+                                    <?= $reject->comment ?>
+                                </p>
+                                <form action="/start" method="post">
+                                    <input type="hidden" name="task_id" value="<?=$given->id?>">
+                                    <input type="hidden" name="task_status" value="2">
+                                    <button name="ok" type="button" class="btn btn-info end">To progress</button>
+                                </form>
+                            </div>
                         </div>
                     <?php }
                     ?>

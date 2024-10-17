@@ -13,18 +13,18 @@ class Model extends Database
     public static function all()
     {
         $sql = "SELECT * FROM " . static::$table;
-        $query = self::connect()->query($sql);
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        $result = self::connect()->query($sql);
+        return $result->fetchAll(PDO::FETCH_OBJ);
     }
 
     public static function show($id)
     {
         if (gettype((int)$id) == "integer") {
             $sql = "SELECT * FROM " . static::$table . " WHERE id = :id";
-            $query = self::connect()->prepare($sql);
-            $query->bindParam(":id", $id);
-            $query->execute();
-            return $query->fetch(PDO::FETCH_OBJ);
+            $result = self::connect()->prepare($sql);
+            $result->bindParam(":id", $id);
+            $result->execute();
+            return $result->fetch(PDO::FETCH_OBJ);
         }
     }
 
@@ -61,8 +61,8 @@ class Model extends Database
         }
         $setValue = rtrim($setValue, ",");
 
-        $query = "UPDATE " . static::$table . " SET {$setValue} WHERE id = {$id}";
-        $stmt = self::connect()->prepare($query);
+        $result = "UPDATE " . static::$table . " SET {$setValue} WHERE id = {$id}";
+        $stmt = self::connect()->prepare($result);
 
         return $stmt->execute();
     }
@@ -84,22 +84,22 @@ class Model extends Database
 
     public static function getOne($email){
         $sql = "SELECT * FROM " . static::$table . " WHERE email = :email";
-        $query = self::connect()->prepare($sql);
-        $query->bindParam(":email", $email);
-        $query->execute();
-        return $query->fetch(PDO::FETCH_OBJ);
+        $result = self::connect()->prepare($sql);
+        $result->bindParam(":email", $email);
+        $result->execute();
+        return $result->fetch(PDO::FETCH_OBJ);
     }
 
     public static function getAllTask(){
         $sql = "SELECT ". static::$table .".*, user.name AS name FROM " . static::$table ." LEFT JOIN user ON ". static::$table .".user_id=user.id";
-        $query = self::connect()->query($sql);
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        $result = self::connect()->query($sql);
+        return $result->fetchAll(PDO::FETCH_OBJ);
     }
 
     public static function getUsers(){
         $sql = "SELECT id,name FROM user WHERE role != 'admin'";
-        $query = self::connect()->query($sql);
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        $result = self::connect()->query($sql);
+        return $result->fetchAll(PDO::FETCH_OBJ);
     }
 
     public static function createTask($data)
@@ -112,13 +112,13 @@ class Model extends Database
 
     public static function get($id,$status){
         $sql = "SELECT * FROM ". static::$table . " WHERE user_id = {$id} AND status = {$status}";
-        $query = self::connect()->query($sql);
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        $result = self::connect()->query($sql);
+        return $result->fetchAll(PDO::FETCH_OBJ);
     } 
 
     public static function getOwnTasks($id){
 
-        $count = self::getCount();
+        // $count = self::getCount();
         $query0 = self::get($id,'0');
         $query1 = self::get($id,'1');
         $query2 = self::get($id,'2');
@@ -133,9 +133,45 @@ class Model extends Database
         return $tasks;
     }
 
-    public static function getCount(){
-        $sql = "SELECT COUNT(id) FROM " . self::$table;
-        $query = self::connect()->query($sql);
+
+    //these three are to get by status and count by status
+    public static function getCountAll(){
+        $sql = "SELECT COUNT(*) AS count FROM " . static::$table;
+        $result = self::connect()->query($sql);
+        return $result->fetch(PDO::FETCH_OBJ);
     }
+
+    public static function getCountEach($status){
+        $sql = "SELECT COUNT(*) AS count FROM " . static::$table  . " WHERE status='{$status}'";
+        $result = self::connect()->query($sql);
+        return $result->fetch(PDO::FETCH_OBJ);
+    }
+
+    public static function getTaskByStatus($status) {
+        // $sql = "SELECT ". static::$table .".*, user.name AS name FROM " . static::$table ." LEFT JOIN user ON ". static::$table .".user_id=user.id";
+        $sql = "SELECT " . static::$table  .  ".*, user.name AS name FROM " . static::$table  .  " LEFT JOIN user ON " . static::$table  . ".user_id=user.id WHERE ". static::$table .".status='{$status}'";
+        $result = self::connect()->query($sql);
+        return $result->fetchAll(PDO::FETCH_OBJ);
+    }   
+
+    public static function getAllCount(){
+        $all = self::getCountAll();
+        $st0 = self::getCountEach('0');
+        $st1 = self::getCountEach('1');
+        $st2 = self::getCountEach('2');
+        $st3 = self::getCountEach('3');
+        $st4 = self::getCountEach('4');
+
+        $data = [
+            "all" => $all,
+            "rejected" => $st0,
+            "given" => $st1,
+            "in_progress" => $st2,
+            "done" => $st3,
+            "ready" => $st4,
+        ];
+        return $data;
+    }
+
 
 }
