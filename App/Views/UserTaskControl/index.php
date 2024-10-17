@@ -18,7 +18,7 @@
             <div class="card card-row card-danger">
                 <div class="card-header">
                     <h3 class="card-title">
-                        Rejected
+                        Rejected <i class="bi bi-arrow-clockwise"></i>
                     </h3>
                 </div>
                 <div class="card-body">
@@ -68,7 +68,7 @@
             <div class="card card-row card-secondary">
                 <div class="card-header">
                     <h3 class="card-title">
-                        Given Tasks
+                        Given Tasks <i class="bi bi-hourglass-split"></i>
                     </h3>
                 </div>
                 <div class="card-body">
@@ -97,7 +97,7 @@
             <div class="card card-row card-default">
                 <div class="card-header bg-info">
                     <h3 class="card-title">
-                        In Progress
+                        In Progress <i class="bi bi-person-workspace"></i>
                     </h3>
                 </div>
                 <div class="card-body">
@@ -126,7 +126,7 @@
             <div class="card card-row card-success">
                 <div class="card-header">
                     <h3 class="card-title">
-                        Done
+                        Done <i class="bi bi-check-lg"></i>
                     </h3>
                 </div>
                 <div class="card-body">

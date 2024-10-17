@@ -133,7 +133,7 @@
                                                 if ($model->status == '0') { ?>
                                                     <button type="button" class="btn btn-danger" disabled><i class="bi bi-arrow-clockwise"></i></button>
                                                 <?php } elseif ($model->status == '1') { ?>
-                                                    <button type="button" class="btn btn-secondary" disabled><i class="bi bi-send-check"></i></button>
+                                                    <button type="button" class="btn btn-secondary" disabled><i class="bi bi-hourglass-split"></i></button>
                                                 <?php } elseif ($model->status == '2') { ?>
                                                     <button type="button" class="btn btn-info" disabled><i class="bi bi-person-workspace"></i></button>
                                                 <?php } elseif ($model->status == '3') { ?>
