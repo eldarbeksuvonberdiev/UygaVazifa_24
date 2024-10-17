@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 16, 2024 at 06:58 AM
+-- Generation Time: Oct 17, 2024 at 06:08 AM
 -- Server version: 8.0.39
 -- PHP Version: 8.2.12
 
@@ -42,11 +42,12 @@ CREATE TABLE `task` (
 --
 
 INSERT INTO `task` (`id`, `title`, `description`, `img`, `user_id`, `status`, `comment`) VALUES
-(1, 'Something', 'Something Something', NULL, 1, 1, ''),
-(2, 'Something Something', ' Something Something', NULL, 8, 1, ''),
-(3, 'Something', 'Something Something Something', NULL, 1, 1, NULL),
-(4, 'Something', 'Something Something ', 'App/Images/24-10-16_05-49-14.jpg', 8, 1, NULL),
-(5, 'dsnfkjanfkjdf', 'adkmvnkjanfj;nbk s;f', 'App/Images/24-10-16_06-07-22.', 15, 1, NULL);
+(1, 'Something', 'Something Something', NULL, 1, 4, ''),
+(2, 'Something Something', ' Something Something', NULL, 1, 0, 'Buni qaytadan qilish kerak'),
+(3, 'Something', 'Something Something Something', NULL, 1, 0, 'Something'),
+(4, 'Something', 'Something Something ', 'App/Images/24-10-16_05-49-14.jpg', 1, 1, NULL),
+(5, 'dsnfkjanfkjdf', 'adkmvnkjanfj;nbk s;f', 'App/Images/24-10-16_06-07-22.', 1, 4, NULL),
+(6, 'trerg', 'wrgegr', 'App/Images/24-10-16_12-52-41.', 1, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -71,9 +72,9 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`, `status`) VALUES
 (1, 'Boltavoy', 'boltavoy@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
 (2, 'Elbek', 'elbek@gmail.com', '202cb962ac59075b964b07152d234b70', 'admin', 0),
 (8, 'Hech', 'janob@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
-(9, 'Kimdir', 'kimdir@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
+(9, 'Kimdir', 'kimdir@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 1),
 (15, 'sal', 'sal@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
-(16, 'Salomat', 'salomat@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
+(16, 'Salomat', 'salomat@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 1),
 (17, 'test', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
 (18, 'tester', 'tester@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
 (19, 'sal', 'salomatmisiz@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 0),
@@ -104,7 +105,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `task`
 --
 ALTER TABLE `task`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
