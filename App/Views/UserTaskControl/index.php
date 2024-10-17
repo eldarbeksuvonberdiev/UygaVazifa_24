@@ -34,10 +34,10 @@
                                 <p>
                                     <?= $reject->comment ?>
                                 </p>
-                                <form action="/start" method="post">
-                                    <input type="hidden" name="task_id" value="<?=$given->id?>">
-                                    <input type="hidden" name="task_status" value="2">
-                                    <button name="ok" type="button" class="btn btn-info end">To progress</button>
+                                <form action="/given" method="post">
+                                    <input type="hidden" name="id" value="<?=$reject->id?>">
+                                    <input type="hidden" name="status" value="1">
+                                    <button name="ok" type="submit" class="btn btn-secondary end">To Given</button>
                                 </form>
                             </div>
                         </div>

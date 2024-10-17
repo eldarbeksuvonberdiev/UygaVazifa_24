@@ -28,6 +28,7 @@ Route::get("/rejected",[TaskController::class,"rejected"]);
 Route::get("/ready",[TaskController::class,"ready"]);
 
 Route::post("/add",[TaskController::class,"create"]);
+Route::post("/given",[TaskController::class,"togiven"]);
 Route::post("/accept",[TaskController::class,"accept"]);
 Route::post("/reject",[TaskController::class,"reject"]);
 Route::post("/start",[TaskController::class,"changeStatus"]);
