@@ -116,7 +116,6 @@ class TaskController{
             1 => $given
         ];
         return view('TaskControl/index','Admin menu',$data);
-        // return $data;
     }
 
     public function in_progress(){
@@ -127,7 +126,6 @@ class TaskController{
             1 => $in_progress
         ];
         return view('TaskControl/index','Admin menu',$data);
-        // return $data;
     }
 
     public function done(){
@@ -138,7 +136,6 @@ class TaskController{
             1 => $done
         ];
         return view('TaskControl/index','Admin menu',$data);
-        // return $data;
     }
 
     public function ready(){
@@ -149,7 +146,6 @@ class TaskController{
             1 => $ready
         ];
         return view('TaskControl/index','Admin menu',$data);
-        // return $data;
     }
 
     public function rejected(){
@@ -160,7 +156,6 @@ class TaskController{
             1 => $rejected
         ];
         return view('TaskControl/index','Admin menu',$data);
-        // return $data;
     }
 }
 

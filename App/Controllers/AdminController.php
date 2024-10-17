@@ -22,7 +22,6 @@ class AdminController{
             1 => $tasks
         ];
         $owntasks = Task::getOwnTasks($_SESSION['auth']->id);
-        // dd($tasks);
         if($_SESSION['auth']->role != 'admin'){
             return view('UserTaskControl/index','User menu',$owntasks);
         }
@@ -32,6 +31,10 @@ class AdminController{
     public function users(){
         $users = User::all();
         return view('TaskStatus/index','Users',$users);
+    }
+
+    public function notfound(){
+        return view('notfound','NotFound');
     }
 
 

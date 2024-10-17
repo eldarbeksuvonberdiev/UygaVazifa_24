@@ -5,17 +5,12 @@
                 <div class="col-sm-6">
                     <h1 class="m-0">Task Control</h1>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Task Control</li>
-                    </ol>
-                </div>
             </div>
         </div>
     </div>
     <section class="content">
         <div class="container-fluid">
-            <a href="/"><button type="button" class="btn btn-primary mb-3">Qaytish</button>
+            <a href="/"><button type="button" class="btn btn-secondary mb-3">Qaytish</button>
             </a>
             <form action="/add" method="post" enctype="multipart/form-data">
                 <div class="mb-3">

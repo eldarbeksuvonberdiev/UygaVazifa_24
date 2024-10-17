@@ -8,6 +8,7 @@ use App\Routes\Route;
 
 //Admin Controller
 Route::get("/",[AdminController::class,"index"]);
+Route::get("/notfound404",[AdminController::class,"notfound"]);
 Route::get("/users",[AdminController::class,"users"]);
 
 //Login Controller

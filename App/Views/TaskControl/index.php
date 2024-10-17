@@ -131,16 +131,16 @@
                                             <td>
                                                 <?php
                                                 if ($model->status == '0') { ?>
-                                                    <button type="button" class="btn btn-danger" disabled>Rejected</button>
+                                                    <button type="button" class="btn btn-danger" disabled><i class="bi bi-arrow-clockwise"></i></button>
                                                 <?php } elseif ($model->status == '1') { ?>
-                                                    <button type="button" class="btn btn-secondary" disabled>Given</button>
+                                                    <button type="button" class="btn btn-secondary" disabled><i class="bi bi-send-check"></i></button>
                                                 <?php } elseif ($model->status == '2') { ?>
-                                                    <button type="button" class="btn btn-info" disabled>In Progress</button>
+                                                    <button type="button" class="btn btn-info" disabled><i class="bi bi-person-workspace"></i></button>
                                                 <?php } elseif ($model->status == '3') { ?>
 
-                                                    <button type="button" class="btn btn-success" disabled>Done</button>
+                                                    <button type="button" class="btn btn-success" disabled><i class="bi bi-check2"></i></button>
 
-                                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $model->id ?>">Accept or Reject</button>
+                                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $model->id ?>"><i class="bi bi-check2-all"></i><i class="bi bi-arrow-clockwise"></i></button>
 
                                                     <div class="modal fade" id="exampleModal<?= $model->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
@@ -179,7 +179,7 @@
                                                         </div>
                                                     </div>
                                                 <?php } elseif ($model->status == '4') { ?>
-                                                    <button type="button" class="btn btn-dark" disabled>Ready</button>
+                                                    <button type="button" class="btn btn-dark" disabled><i class="bi bi-check2-all"></i></button>
                                                 <?php } ?>
                                             </td>
                                         </tr>

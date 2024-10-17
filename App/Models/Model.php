@@ -97,7 +97,7 @@ class Model extends Database
     }
 
     public static function getUsers(){
-        $sql = "SELECT id,name FROM user WHERE role != 'admin'";
+        $sql = "SELECT id,name FROM user WHERE role != 'admin' AND status='1'";
         $result = self::connect()->query($sql);
         return $result->fetchAll(PDO::FETCH_OBJ);
     }

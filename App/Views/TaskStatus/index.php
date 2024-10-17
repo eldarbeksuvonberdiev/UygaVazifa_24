@@ -14,7 +14,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Tasks</h3>
+                            <h3 class="card-title"><strong>Users</strong></h3>
                         </div>
                         <div class="card-body">
                             <table id="example2" class="table table-bordered-striped table-hover ">
@@ -23,7 +23,6 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Status</th>
                                         <th>Change Status</th>
                                     </tr>
                                 </thead>
@@ -39,7 +38,6 @@
                                             <td><?= $model->id ?></td>
                                             <td><?= $model->name ?></td>
                                             <td><?= $model->email ?></td>
-                                            <td><?= $model->status ?>
                                             </td>
                                             <td>
                                                 <?php
@@ -47,13 +45,13 @@
                                                     <form action="/activate" method="post">
                                                         <input type="hidden" name="id" value="<?= $model->id ?>">
                                                         <input type="hidden" name="status" value="1">
-                                                        <button type="submit" name="ok" class="btn btn-success">Activate</button>
+                                                        <button type="submit" name="ok" class="btn btn-success"><i class="bi bi-person-fill-check"></i></button>
                                                     </form>
                                                 <?php } else { ?>
                                                     <form action="/disactivate" method="post">
                                                         <input type="hidden" name="id" value="<?= $model->id ?>">
                                                         <input type="hidden" name="status" value="0">
-                                                        <button type="submit" name="ok" class="btn btn-danger">Disactiveate</button>
+                                                        <button type="submit" name="ok" class="btn btn-danger"><i class="bi bi-person-x-fill"></i></button>
                                                     </form>
                                                 <?php }
                                                 ?>
